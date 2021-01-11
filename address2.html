@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <title>주소 찾기</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+  </head>
+  <body onload="execDaumPostcode()">
+  <div id = "layer" style = "display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; ">
+  </div>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+ 
+  <script>
+      new daum.Postcode({
+        oncomplete: function(data) {
+            if(data.userSelectedType=="R"){
+                // userSelectedType : 검색 결과에서 사용자가 선택한 주소의 타입
+                // return type : R - roadAddress, J : jibunAddress
+                // TestApp 은 안드로이드에서 등록한 이름
+                window.TestApp.setAddress(data.zonecode, data.roadAddress, data.buildingName);
+            }
+            else{
+                window.TestApp.setAddress(data.zonecode, data.jibunAddress, data.buildingName);
+            }       
+        }
+    }).open();
+
+  </script>
+  </body>
+</html>
