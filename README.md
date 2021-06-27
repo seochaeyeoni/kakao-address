@@ -1,2 +1,2 @@
 # kakao-address
-https://tjcodus98.github.io/kakao-address/address.html
+https://seochaeyeoni.github.io/kakao-address/address.html
